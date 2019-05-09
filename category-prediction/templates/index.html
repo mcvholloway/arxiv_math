@@ -1,0 +1,30 @@
+<html>
+
+<style>
+label textarea{
+ vertical-align: middle;
+}
+</style>
+
+        <body style="font-family:'Roboto'"> 
+		<h1 style="background-color:firebrick;color:white;border-bottom:solid 10px grey;"><img src="/static/mg.png" width="60" height="60">&nbsp;&nbsp;arXiv Mathematics Paper Finder
+</h1>
+
+
+<h3>Input title and abstract to find categories, suggested tags, and related papers.</h3>
+
+<div>
+  <form action="/result" method="POST">
+    <label for="title">Title:</label>
+      <input type="text" id="age" name="title" size = "50"> 
+    <!-- <textarea name="Text1" cols="60" rows="1"></textarea> -->
+    <br>
+    <!-- <label for="abstract">Abstract:</label> -->
+    <!-- <input type="text" id="age" name="age"> -->
+    <label>Abstract:<textarea name="Text2" cols="60" rows="5" name = "abstract" ></textarea></label>
+    <br>
+    <input type="submit" value="Analyze">
+  </form>
+</div>
+</body>
+</html>

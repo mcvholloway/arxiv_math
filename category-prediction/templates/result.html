@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<body style="font-family:'Roboto'">	
+
+                <h1 style="background-color:firebrick;color:white;border-bottom:solid 10px grey;"><img src="/static/mg.png" width="60" height="60">&nbsp;&nbsp;arXiv Mathematics Paper Finder
+</h1>
+
+<strong>Title: </strong> {{to_predict_list[0]}} <br>
+
+		<strong>Abstract: </strong> {{to_predict_list[1]}}
+
+
+		<form action="/index">
+		    <input type="submit" value="Start Over" style="color: black; background-color: CadetBlue; font-weight: bold;">
+		</form>
+
+		<br>
+		<font size="+1"><u><strong>Predicted categories:<br></strong></u></font>
+	Click on category to see explanation of prediction.
+			<ul>
+		{% for label in prediction_pre %}
+		<li> <a href="{{ url_for(label) }}" target="_blank">{{ lookup_dict[label] }} </a></li>
+		{% endfor %}
+			</ul>
+
+			<font size="+1">			<u><strong>Related Papers:</strong><br></u></font>
+		Similarity is given on a scale of 0 to 1 with larger numbers indicating greater similarity.
+			<ul>
+		{% for index in num %}
+		<li>	(Similarity: {{ related_docs_similarities[index] }}) <a href = "{{ "https://arxiv.org/abs/" + df.loc[related_docs_indices[index], 'id'] }}" target="_blank"> 
+		{{ df.loc[related_docs_indices[index], 'title'] }} </a>
+		{% endfor %}
+			</ul>
+<style>
+.row {
+  display: flex;
+}
+
+.column1 {
+  flex: 50%;
+  padding: 0 0 20px 10px;
+}
+
+.column2 {
+  flex: 25%;
+  border: 5px solid firebrick;
+  padding: 20px 0 20px 10px;
+  background-color: lightgray;
+}
+
+</style>
+
+	<div class ="row">
+		<div class="column2">
+			Choose a tag from the suggested tags to find<br>related papers with the same tag:
+		<form action="/tag_finder" method="POST">
+                        <select name="example"> 
+                {% for tag in tags %}
+                        <option value="{{tag}}">{{tag}}
+                {% endfor %}
+                        </select>
+		    <input type="submit" value="Find me papers!" style="font-weight: bold;">
+		</form>
+
+                       Or enter your own tag to find related papers with this tag: 
+		<form action="/tag_finder" method="POST">
+		<input type="text" id="age" name="title" size = "25"> 
+                <input type="submit" value="Find me papers!" style="font-weight: bold;">
+                </form> 
+		</div>
+
+
+		<div class="column1">
+			<font size="+1"><u><strong>Suggested Tags:</strong></u></font>
+			<ul>
+		{% for tag in tags %}
+		<li> {{ tag }} </li>
+		{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+	</body>
+
+
+</html>
+
