@@ -21,7 +21,7 @@ Finally, to address the multilabel aspect of the dataset, a classifier chain alg
 The goal of the recommender is to locate papers that may be related to a given paper. This is accomplished by finding the most similar papers to a given one based on the cosine similarities of term-frequency inverse-document frequency vectors. I also included code that allows the user to search based on topics or keywords, while still ranking the search results based on similariy to a given paper. The code that creates the TFIDFVectorizer and the tfidf vectors from the dataset is contained in the notebook <a href="https://github.com/mcvholloway/arxiv_math/blob/master/notebooks/2.0-Tfidf_Recommender.ipynb">2.0-Tfidf_Recommender</a>.
 
 ### Objective 3: Unsupervised Tagger
-For purposes of classification and searching, it is useful to generate tags or keywords/phrases for each paper. I combined ideas from [_Key2Vec: Automatic Ranked Keyphrase Extraction from Scientific Articles using Phrase Embeddings_](https://aclweb.org/anthology/N18-2100) and [_YAKE! Collection-Independent Automatic Keyword Extractor_](http://yake.inesctec.pt/) to extract keywords and phrases from the title and abstract.
+For purposes of classification and searching, it is useful to generate tags or keywords/phrases for each paper. I combined ideas from [_Key2Vec: Automatic Ranked Keyphrase Extraction from Scientific Articles using Phrase Embeddings_](https://aclweb.org/anthology/N18-2100) and [_YAKE! Collection-Independent Automatic Keyword Extractor_](http://yake.inesctec.pt/) to extract keywords and phrases from the title and abstract. The code implementing the tagger is located in <a href="https://github.com/mcvholloway/arxiv_math/blob/master/notebooks/3.0-Autotagger.ipynb">3.0-Autotagger</a>.
 
 
 
