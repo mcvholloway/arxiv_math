@@ -1,7 +1,7 @@
 # Applying NLP to the arXiv Mathematics Preprint Repository
 This repository contains code for a capstone project done for Cohort 2 of the Data Science Bootcamp at Nashville Software School.
 
-arXiv.org is an online repository for preprints of research papers in mathematics, physics, computer science, and other fields. In this project, metadata from nearly 400,000 papers from the field of mathematics was obtained using the arXiv API. The harvester to gather this data is contained in the notebook "1.0-arxiv_api".
+arXiv.org is an online repository for preprints of research papers in mathematics, physics, computer science, and other fields. In this project, metadata from nearly 400,000 papers from the field of mathematics was obtained using the arXiv API. The harvester to gather this data is contained in the notebook <a href="https://github.com/mcvholloway/arxiv_math/blob/master/notebooks/1.0-arxiv_api.ipynb" target="_blank">"1.0-arxiv_api"</a>.
 
 This project had three main objectives:
 
