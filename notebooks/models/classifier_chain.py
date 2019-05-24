@@ -32,4 +32,18 @@ class ClassifierChain:
             except:
                 X = sparse.hstack([X, prediction])
             
-        return np.concatenate(predictions, axis = 1)  
+        return np.concatenate(predictions, axis = 1)
+
+    def predict_proba(self, X):
+        import numpy as np
+        from scipy import sparse
+        predictions = [None]*len(self.order_)
+        for i in self.order_:
+            prediction = (self.models_[i].predict_proba(X))[:,1].reshape(-1,1)
+            predictions[i] = prediction
+            try:
+                X = np.hstack([X, prediction])
+            except:
+                X = sparse.hstack([X, prediction])
+            
+        return np.concatenate(predictions, axis = 1)   
